@@ -95,9 +95,4 @@ public class printAccount {
         printingSides.getHorizontal(0, getMaxSize(account));
         System.out.println();
     }
-
-    public static void main(String[] args) {
-        Account account = new Account( "Matome Adolph Tebello", "Mohohoma", 20);
-        printUserInfo(account);
-    }
 }

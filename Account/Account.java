@@ -1,5 +1,6 @@
 package project4.Account;
 
+import java.util.Stack;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Account {
@@ -8,10 +9,11 @@ public class Account {
     private float balance;
     private String userName;
     private String userLastName;
-    private String accountNumber;
+    private String accountNumber = "";
+    private Stack<Transactions> transactions;
 
     // Helper function
-    public static int getAccountNumber() {
+    public static int generateAccountNumber() {
         int randomInt = ThreadLocalRandom.current().nextInt(100000000, 999999999);
 
         return randomInt;
@@ -23,7 +25,7 @@ public class Account {
         userName = un;
         userLastName = uln;
         balance = 0;
-        accountNumber = accountNumber + getAccountNumber();
+        accountNumber = accountNumber + generateAccountNumber();
     }
 
     // Getters
@@ -31,5 +33,19 @@ public class Account {
     public float getBalance() { return balance; }
     public String getUserName() { return userName; }
     public String getUserLastName() { return userLastName; }
-    public String getAccountNUmber() { return accountNumber; }
+    public String getAccountNumber() { return accountNumber; }
+
+
+    // Dealing with transactions
+    public void addTransactions(boolean rf, String item) {
+        transactions.push(new Transactions(rf, item));
+    }
+
+    public void printTransactions() {
+        Stack<Transactions> TransactionsCopy = transactions;
+        for (int i = 0; i < transactions.size(); i++) {
+            TransactionsCopy.pop().printSingleTransaction();
+            System.out.println();
+        }
+    }
 }
