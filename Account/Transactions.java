@@ -7,21 +7,31 @@ public class Transactions {
     // Instance variables 
     private static Date dateOfTransaction;
     private static boolean reflection;
+    private static float Amount;
     private static String ItemsBought;
 
 
     // Create transaction
-    public Transactions(boolean rl, String items) {
+    public Transactions(boolean rl, String items, float amount) {
         dateOfTransaction = new Date();
         reflection = rl;
+        Amount = amount;
         ItemsBought = items;
     }
 
     // Print Transactions
     public void printSingleTransaction() {
         printingSides.getHorizontal(0, 10);
+        System.out.println();
+
         System.out.println("# " + dateOfTransaction);
-        System.out.println("# " + reflection);
+
+        // Printing the positive or negative transaction
+        if (reflection)
+            System.out.println("# " + Amount);
+        else
+            System.out.println("# -" + Amount);
+
         System.out.println("# " + ItemsBought);
         printingSides.getHorizontal(0, 10);
     }

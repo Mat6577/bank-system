@@ -26,6 +26,7 @@ public class Account {
         userLastName = uln;
         balance = 0;
         accountNumber = accountNumber + generateAccountNumber();
+        transactions = new Stack<Transactions>();
     }
 
     // Getters
@@ -35,10 +36,13 @@ public class Account {
     public String getUserLastName() { return userLastName; }
     public String getAccountNumber() { return accountNumber; }
 
-
     // Dealing with transactions
-    public void addTransactions(boolean rf, String item) {
-        transactions.push(new Transactions(rf, item));
+    public void addTransactions(boolean rf, String item, float amount) {
+        Transactions trans = new Transactions(rf, item, amount);
+        transactions.push(trans);
+
+        if (rf) { balance+=amount; }
+        else { balance-=amount; }
     }
 
     public void printTransactions() {

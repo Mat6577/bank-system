@@ -56,6 +56,7 @@ public class printAccount {
 
 
         // Getting upper enclosure
+        System.out.println();
         printingSides.getHorizontalSpaces(0, 1);
         printingSides.getHorizontal(0, getMaxSize(account));
         System.out.println();
