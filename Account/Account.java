@@ -1,6 +1,5 @@
-package main.java.project4.Account;
+package project4.Account;
 
-import java.util.random.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Account {
