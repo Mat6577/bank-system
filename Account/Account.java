@@ -46,9 +46,8 @@ public class Account {
     }
 
     public void printTransactions() {
-        Stack<Transactions> TransactionsCopy = transactions;
-        for (int i = 0; i < transactions.size(); i++) {
-            TransactionsCopy.pop().printSingleTransaction();
+        for (Transactions t : transactions) {
+            t.printSingleTransaction();
             System.out.println();
         }
     }

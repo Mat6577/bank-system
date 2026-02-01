@@ -4,23 +4,48 @@ import java.util.Scanner;
 import project4.Account.*;
 
 public class Start {
+    public static final String options = "Options are: " + //
+                                         "\n1. Received payment" + //
+                                         "\n2. Make Payment" + //
+                                         "\n3. print Transactions" + //
+                                         "\n4. exit";
+
     public static void main(String[] args) {
         System.out.println("Welcome to Project 4!");
-        // Additional startup logic can be added here
-        Scanner scanner = new Scanner(System.in);
 
+        // Creating a new account
         Account account = new Account("Matome Adolph Tebello", "Mohohoma", 20);
-        receipt.receivePayment(scanner, account);
-        account.printTransactions();
 
-        receipt.receivePayment(scanner, account);
-        account.printTransactions();
+        while (true) {
+            try {
+                System.out.println("Choose from the options below:\n" + options);
+                System.out.print("> ");
 
-        payment.makePayment(scanner, account);
-        account.printTransactions();
+                String input = System.console().readLine();
 
-        printAccount.printUserInfo(account);
+                if (input.equalsIgnoreCase("1")) {
+                    receipt.receivePayment(account);
+                }
 
-        scanner.close();
+                else if (input.equalsIgnoreCase("2")) {
+                    payment.makePayment(account);
+                }
+
+                else if (input.equalsIgnoreCase("3")) {
+                    account.printTransactions();            
+                }
+        
+                else if (input.equalsIgnoreCase("4")) {
+                    printAccount.printUserInfo(account);
+                    System.out.println("That you for using our bank.");
+                    break;
+                }
+                else {
+                    System.out.println("Invalid option. Try again.");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }       
     }
 }
