@@ -17,5 +17,6 @@ public class payment {
         System.out.println();
 
         account.addTransactions(false, name, price);
+        scanner.close();
     }
 }

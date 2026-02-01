@@ -17,5 +17,7 @@ public class receipt {
         System.out.println();
 
         account.addTransactions(false, name, price);
+
+        scanner.close();
     }
 }

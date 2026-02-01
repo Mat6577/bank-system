@@ -1,6 +1,5 @@
 package project4;
 
-import java.util.Scanner;
 import project4.Account.*;
 
 public class Start {
