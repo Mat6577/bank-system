@@ -1,5 +1,7 @@
 package project4;
 
+import java.util.Scanner;
+
 import project4.Account.*;
 
 public class Start {
@@ -12,6 +14,8 @@ public class Start {
     public static void main(String[] args) {
         System.out.println("Welcome to Project 4!");
 
+        Scanner scanner = new Scanner(System.in);
+
         // Creating a new account
         Account account = new Account("Matome Adolph Tebello", "Mohohoma", 20);
 
@@ -20,14 +24,14 @@ public class Start {
                 System.out.println("Choose from the options below:\n" + options);
                 System.out.print("> ");
 
-                String input = System.console().readLine();
+                String input = scanner.nextLine();
 
                 if (input.equalsIgnoreCase("1")) {
-                    receipt.receivePayment(account);
+                    Receipt.receivePayment(scanner, account);
                 }
 
                 else if (input.equalsIgnoreCase("2")) {
-                    payment.makePayment(account);
+                    Payment.makePayment(scanner, account);
                 }
 
                 else if (input.equalsIgnoreCase("3")) {
@@ -40,10 +44,11 @@ public class Start {
                     break;
                 }
                 else {
-                    System.out.println("Invalid option. Try again.");
+                    continue;
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+                scanner.close();
             }
         }       
     }

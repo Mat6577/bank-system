@@ -5,10 +5,10 @@ import project1.version_2.*;
 
 public class Transactions {
     // Instance variables 
-    private static Date dateOfTransaction;
-    private static boolean reflection;
-    private static float Amount;
-    private static String ItemsBought;
+    private Date dateOfTransaction;
+    private boolean reflection;
+    private float Amount;
+    private String ItemsBought;
 
 
     // Create transaction
